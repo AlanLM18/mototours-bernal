@@ -8,10 +8,10 @@ const rzrVehicles = [
 ];
 
 const cuatrimotosVehicles = [
-  { id: 2, name: "Italika atv200", price: 500, image: "/images/atv200.jpg", description: "Cuatrimoto italica de 200cc" },
-  { id: 1, name: "Italika atv180", price: 500, image: "/images/atv180.jpg", description: "Cuatrimoto italica de 180cc" },
-  { id: 3, name: "Italika atv180 c", price: 500, image: "/images/atv180c.jpg", description: "Cuatrimoto italica de 180cc" },
-  { id: 4, name: "Italika atv150", price: 500, image: "/images/atv150.jpg", description: "Cuatrimoto italica de 150cc" }
+  { id: 2, name: "Italika atv200", price: 500, image: "/images/atv200.jpg", description: "Cuatrimoto italika de 200cc" },
+  { id: 1, name: "Italika atv180", price: 500, image: "/images/atv180.jpg", description: "Cuatrimoto italika de 180cc" },
+  { id: 3, name: "Italika atv180 c", price: 500, image: "/images/atv180c.jpg", description: "Cuatrimoto italika de 180cc" },
+  { id: 4, name: "Italika atv150", price: 500, image: "/images/atv150.jpg", description: "Cuatrimoto italika de 150cc" }
 ];
 
 // Ruta para mostrar el catálogo
