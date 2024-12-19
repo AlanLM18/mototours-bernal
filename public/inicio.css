@@ -1,0 +1,63 @@
+/* Fondo de la sección de login */
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('/img/logo.png') no-repeat center center/cover;
+}
+
+/* Caja de formulario */
+.login-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    color: #fff;
+}
+
+.login-box h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    color: #ffcc33; /* Color amarillo montaña */
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1em;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #ff6600; /* Color naranja montaña */
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #cc5200;
+}
+
+.error-message {
+    color: #ff3333;
+    margin-bottom: 1em;
+}

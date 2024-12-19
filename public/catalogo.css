@@ -1,0 +1,108 @@
+/* Estilo general */
+body {
+    font-family: 'Roboto Slab', serif;
+    background-image: url('/images/cuatrirzrpeña.jpg'); /* Imagen de fondo de montañas */
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff; /* Texto blanco para mayor visibilidad */
+    margin: 0;
+    padding: 0;
+    padding-top: 60px;
+    text-align: center;
+  }
+  
+  /* Encabezado */
+  h1, h2 {
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Sección de vehículos */
+  .vehiculos-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  /* Tarjeta de vehículo */
+  .vehiculo-card {
+    background: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente en cada tarjeta */
+    border-radius: 8px;
+    padding: 16px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Imagen del vehículo */
+  .vehiculo-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Estilos de texto */
+  .vehiculo-card h3 {
+    margin-top: 10px;
+    color: #e1e1e1; /* Gris claro */
+  }
+  
+  .vehiculo-card p {
+    margin: 8px 0;
+    color: #ddd; /* Gris claro */
+  }
+  
+  /* Botón de reserva */
+  .vehiculo-card button {
+    background-color: #4caf50; /* Verde oscuro */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .vehiculo-card button:hover {
+    background-color: #388e3c; /* Verde más oscuro */
+  }
+
+ /* ---------------- NAVBAR ---------------- */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #003366;
+  z-index: 1000;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #00aaff;
+}

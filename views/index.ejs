@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehículos de Montaña - Inicio</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <%- include('_navbar') %>
+
+  <!-- Sección de Bienvenida -->
+  <section class="hero">
+    <div class="overlay">
+      <div class="hero-text">
+        <h1>MOTO TOURS BERNAL</h1>
+        <p>DEJANOS SER PARTE DE TU HISTORIA, LA EXPERIENCIA DE HOY LA HACES TU!! </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Misión y Visión -->
+  <section class="mision-vision">
+    <div class="mision">
+      <h2>Nuestra Misión</h2>
+      <p>Ofrecer experiencias de aventura incomparables a través de la renta de cuatrimotos y RZR, con rutas guiadas que recorren los paisajes emblemáticos de Peña de Bernal, Querétaro. Nos enfocamos en brindar un servicio personalizado y de calidad, integrando emoción, seguridad y el disfrute de la naturaleza, mientras promovemos la cultura local, el turismo sostenible y la conexión auténtica con el entorno natural.</p>
+    </div>
+    <div class="vision">
+      <h2>Nuestra Visión</h2>
+      <p>Consolidarnos como la empresa líder en turismo de aventura en Peña de Bernal, destacándonos por nuestras experiencias únicas y memorables, marcadas por la excelencia en el servicio, la innovación y el compromiso con el medio ambiente. Aspiramos a inspirar a nuestros clientes a explorar y valorar la riqueza natural y cultural de Querétaro, posicionándonos como un referente nacional e internacional en actividades de turismo en Quéretaro</p>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="beneficios">
+    <h2>¿Por qué rentar con nosotros?</h2>
+    <div class="beneficio-grid">
+      <div class="beneficio-card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Seguridad</h3>
+        <p>Todos nuestros vehículos son sometidos a</p> 
+        <p>estrictos controles de mantenimiento para</p>
+        <p>garantizar tu seguridad durante cada recorrido.</p>
+        <p>Además, contamos con equipo de protección para</p> 
+        <p>que vivas la aventura con total confianza.</p>
+      </div>
+      <div class="beneficio-card">
+        <i class="fas fa-dollar-sign"></i>
+        <h3>Precios Accesibles</h3>
+        <p>Disfruta de una experiencia inolvidable 
+        <p>al mejor precio.</p>
+        <p>Ofrecemos tarifas competitivas y</p> 
+        <p>promociones especiales para que vivas la aventura</p> 
+        <p>sin preocuparte por tu presupuesto.</p>
+      </div>
+      <div class="beneficio-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Ubicación Estratégica</h3>
+        <p>Nos encontramos en Calle Independencia</p> 
+        <p>C6, Zona Centro, 76680 , Bernal, Qro</p>
+        <p>a pasos de las mejores rutas de aventura y</p>
+        <p>el majestuoso monolito de Peña de Bernal.</p> 
+        <p>¡La emoción comienza cerca de ti!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="testimonios">
+    <h2>Lo que dicen nuestros clientes</h2>
+    <form action="/comentarios" method="POST">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <textarea name="comentario" placeholder="Escribe tu comentario aquí..." required></textarea>
+      <button type="submit">Enviar Comentario</button>
+    </form>
+    <div class="comentarios-lista">
+      <% if (comentarios && comentarios.length > 0) { %>
+        <% comentarios.forEach(comentario => { %>
+          <div class="comentario">
+            <p><strong><%= comentario.nombre %>:</strong> <%= comentario.texto %></p>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p>No hay comentarios aún. Sé el primero en comentar.</p>
+      <% } %>
+    </div>
+  </section>
+
+<!-- Preguntas Frecuentes -->
+<section class="faq">
+  <h2>Preguntas Frecuentes</h2>
+
+  <div class="faq-item">
+    <h3 class="faq-titulo">¿Qué necesito para rentar un vehículo?</h3>
+    <p class="faq-contenido">Solo necesitas una identificación oficial y llenar nuestro formulario de reserva.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3 class="faq-titulo">¿Cuáles son los horarios de alquiler?</h3>
+    <div class="faq-contenido">
+      <p>Sábado 9:00 a.m. - 6:00 p.m.</p>
+      <p>Domingo 9:00 a.m. - 6:00 p.m.</p>
+      <p>Lunes 10:00 a.m. - 6:00 p.m.</p>
+      <p>Martes 10:00 a.m. - 6:00 p.m.</p>
+      <p>Miércoles 10:00 a.m. - 6:00 p.m.</p>
+      <p>Jueves 10:00 a.m. - 6:00 p.m.</p>
+      <p>Viernes 10:00 a.m. - 6:00 p.m.</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Carrusel de Imágenes -->
+<section class="carrusel">
+  <h2>Galería de Aventuras</h2>
+  <div class="slider">
+    <img src="/images/1.jpg" alt="Aventura 1" onclick="openLightbox(0)">
+    <img src="/images/2.jpg" alt="Aventura 2" onclick="openLightbox(1)">
+    <img src="/images/3.jpg" alt="Aventura 3" onclick="openLightbox(2)">
+<!-- Repite esto para todas las imágenes -->
+    <img src="/images/4.jpg" alt="Aventura 4" onclick="openLightbox(3)">
+    <img src="/images/5.jpg" alt="Aventura 5" onclick="openLightbox(4)">
+    <img src="/images/6.jpg" alt="Aventura 6" onclick="openLightbox(5)">
+    <img src="/images/7.jpg" alt="Aventura 7"onclick="openLightbox(6)">
+    <img src="/images/8.jpg" alt="Aventura 8" onclick="openLightbox(7)">
+    <img src="/images/9.jpg" alt="Aventura 9" onclick="openLightbox(8)">
+    <img src="/images/10.jpg" alt="Aventura 10" onclick="openLightbox(9)">
+    <img src="/images/11.jpg" alt="Aventura 11" onclick="openLightbox(10)">
+    <img src="/images/12.jpg" alt="Aventura 12" onclick="openLightbox(11)">
+    <img src="/images/13.jpg" alt="Aventura 13" onclick="openLightbox(12)">
+    <img src="/images/14.jpg" alt="Aventura 14" onclick="openLightbox(13)">
+    <img src="/images/15.jpg" alt="Aventura 15" onclick="openLightbox(14)">
+    <!-- Más imágenes -->
+  </div>
+</section>
+
+<!-- Contenedor del Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+  <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+  <a class="next" onclick="changeImage(1)">&#10095;</a>
+</div>
+
+
+  <!-- Pie de Página -->
+  <footer>
+    <p>Síguenos en nuestras redes sociales:</p>
+    <div class="redes-sociales">
+      <a href="https://www.facebook.com/share/12Emh7zQw7s/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+      <a href="https://www.instagram.com/mototoursbernal?igsh=MTR4YWthZmJwb3Z5ZA==" target="_blank"><i class="fab fa-instagram-square"></i></a>
+      <a href="https://www.tiktok.com/@moto.tours.bernal?_t=ZM-8ryeOGUd81o&_r=1 " target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://api.whatsapp.com/message/KK5WYQG46WXOP1?autoload=1&app_absent=0" target="_blank"><i class="fab fa-whatsapp-square"></i></a>
+
+      </a>
+    </div>
+  </footer>
+
+  <!-- Script para FAQ -->
+  <script>
+    $(document).ready(() => {
+      $('.faq-texto').hide();
+      $('.faq-titulo').click(function() {
+        $(this).next('.faq-texto').slideToggle();
+      });
+    });
+
+    // Script Carrusel
+    let index = 0;
+    const slides = document.querySelectorAll('.slider img');
+    setInterval(() => {
+      slides.forEach(img => img.style.display = 'none');
+      slides[index].style.display = 'block';
+      index = (index + 1) % slides.length;
+    }, 3000);
+  </script>
+  <script>
+    let currentImageIndex = 0;
+    const images = [
+      "/images/1.jpg",
+      "/images/2.jpg",
+      "/images/3.jpg",
+      "/images/4.jpg",
+      "/images/5.jpg",
+      "/images/6.jpg",
+      "/images/7.jpg",
+      "/images/8.jpg",
+      "/images/9.jpg",
+      "/images/10.jpg",
+      "/images/11.jpg",
+      "/images/12.jpg",
+      "/images/13.jpg",
+      "/images/14.jpg",
+      "/images/15.jpg"
+    ];
+  
+    function openLightbox(index) {
+  currentImageIndex = index; // Asigna el índice recibido
+  document.getElementById("lightbox").style.display = "flex";
+  updateLightboxImage();
+}
+
+  
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  
+    function changeImage(direction) {
+      currentImageIndex += direction;
+      if (currentImageIndex >= images.length) currentImageIndex = 0;
+      if (currentImageIndex < 0) currentImageIndex = images.length - 1;
+      updateLightboxImage();
+    }
+
+    // Cerrar al hacer clic fuera de la imagen
+document.getElementById("lightbox").addEventListener("click", (e) => {
+  if (e.target === document.getElementById("lightbox")) {
+    closeLightbox();
+  }
+});
+
+// Cerrar con la tecla ESC
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeLightbox();
+  }
+});
+
+  
+    function updateLightboxImage() {
+  document.getElementById("lightbox-img").src = images[currentImageIndex];
+}
+
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Selecciona todos los elementos faq-item
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item) => {
+      const titulo = item.querySelector(".faq-titulo"); // Selecciona el título dentro del item
+
+      titulo.addEventListener("click", () => {
+        // Toggle de la clase 'active' para expandir/cerrar
+        item.classList.toggle("active");
+
+        // Encontrar el contenido dentro del ítem
+        const contenido = item.querySelector(".faq-contenido");
+
+        // Mostrar u ocultar el contenido basado en la clase 'active'
+        if (item.classList.contains("active")) {
+          contenido.style.display = "block";
+        } else {
+          contenido.style.display = "none";
+        }
+      });
+    });
+  });
+</script>
+
+
+</body>
+</html>

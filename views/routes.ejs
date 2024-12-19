@@ -1,0 +1,165 @@
+<%- include('_navbar') %>
+
+<head>
+  <link rel="stylesheet" href="/routes.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+</head>
+
+<main>
+  <!-- Sección principal -->
+  <section class="hero">
+    <h1>MOTO TOURS BERNAL</h1>
+    <p>ATREVETE, EXPLORA Y DISFRUTA BERNAL.</p>
+  </section>
+
+  <!-- Galería de Rutas -->
+  <section class="routes-gallery">
+    <% routes.forEach((route, index) => { %>
+      <div class="route-card">
+        <!-- Carrusel de Imágenes -->
+        <div class="swiper-container card-swiper">
+          <div class="swiper-wrapper">
+            <% route.images.forEach((image, imgIndex) => { %>
+              <div class="swiper-slide">
+                <img 
+                  src="<%= image %>" 
+                  alt="Imagen de la ruta <%= route.name %> - <%= imgIndex + 1 %>" 
+                  class="lightbox-trigger" 
+                  data-index="<%= index %>" 
+                  data-imgindex="<%= imgIndex %>"
+                >
+              </div>
+            <% }) %>
+          </div>
+          <!-- Botones de navegación específicos -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+        
+        
+        
+        <!-- Información de la Ruta -->
+        <h3><%= route.name %></h3>
+        <p><%- route.description %></p>
+      </div>
+    <% }) %>
+  </section>
+</main>
+
+<!-- Lightbox personalizado -->
+<div class="lightbox" id="lightbox">
+  <span class="close" id="closeBtn">&times;</span>
+  <span class="arrow left" id="prevBtn" tabindex="0">&#10094;</span>
+  <span class="arrow right" id="nextBtn" tabindex="0">&#10095;</span>
+  <img id="lightboxImg" src="" alt="Lightbox">
+
+</div>
+
+<!-- Pie de Página -->
+<footer>
+  <p>Síguenos en nuestras redes sociales:</p>
+  <div class="redes-sociales">
+    <a href="https://www.facebook.com/share/12Emh7zQw7s/" target="_blank">
+      <i class="fab fa-facebook-square"></i>
+    </a>
+    <a href="https://www.instagram.com/mototoursbernal?igsh=MTR4YWthZmJwb3Z5ZA==" target="_blank">
+      <i class="fab fa-instagram-square"></i>
+    </a>
+    <a href="https://www.tiktok.com/@moto.tours.bernal?_t=ZM-8ryeOGUd81o&_r=1" target="_blank">
+      <i class="fab fa-tiktok"></i>
+    </a>
+    <a href="https://api.whatsapp.com/message/KK5WYQG46WXOP1?autoload=1&app_absent=0" target="_blank">
+      <i class="fab fa-whatsapp-square"></i>
+    </a>
+  </div>
+  <p>© 2024 Rutas de Montaña. Todos los derechos reservados.</p>
+</footer>
+
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+// Inicializa Swiper para cada tarjeta
+document.querySelectorAll('.swiper-container').forEach(container => {
+  new Swiper(container, {
+    loop: true,
+    navigation: {
+      nextEl: container.querySelector('.swiper-button-next'),
+      prevEl: container.querySelector('.swiper-button-prev'),
+    },
+    pagination: {
+      el: container.querySelector('.swiper-pagination'),
+      clickable: true,
+    },
+  });
+});
+
+  // Lightbox personalizado
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const closeBtn = document.getElementById('closeBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  const images = document.querySelectorAll('.lightbox-trigger');
+  let currentImageIndex = 0;
+  let currentRouteImages = [];
+
+  // Abre el lightbox
+  function openLightbox(routeIndex, imgIndex) {
+    currentImageIndex = imgIndex;
+    currentRouteImages = Array.from(document.querySelectorAll(`.lightbox-trigger[data-index="${routeIndex}"]`));
+    updateLightboxImage();
+    lightbox.style.display = 'flex';
+  }
+
+  // Actualiza la imagen en el Lightbox
+  function updateLightboxImage() {
+    lightboxImg.src = currentRouteImages[currentImageIndex].src;
+  }
+
+  // Eventos de navegación
+  function showPrevImage() {
+    currentImageIndex = (currentImageIndex - 1 + currentRouteImages.length) % currentRouteImages.length;
+    updateLightboxImage();
+  }
+
+  function showNextImage() {
+    currentImageIndex = (currentImageIndex + 1) % currentRouteImages.length;
+    updateLightboxImage();
+  }
+
+  // Cerrar el Lightbox
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+  }
+
+  // Añadir eventos
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      const routeIndex = img.getAttribute('data-index');
+      const imgIndex = parseInt(img.getAttribute('data-imgindex'));
+      openLightbox(routeIndex, imgIndex);
+    });
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  prevBtn.addEventListener('click', showPrevImage);
+  nextBtn.addEventListener('click', showNextImage);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPrevImage();
+    if (e.key === 'ArrowRight') showNextImage();
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+</script>
