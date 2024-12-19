@@ -67,6 +67,6 @@ app.use("/routes", routesRoutes);
 
 // Inicialización del servidor
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log("Servidor en http://127.0.0.1:" + port);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Servidor corriendo en el puerto ${port}`);
 });
