@@ -66,7 +66,8 @@ app.use("/catalogo", catalogoRutas);
 app.use("/routes", routesRoutes);
 
 // Inicialización del servidor
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080; // Usa el puerto proporcionado por Railway
 app.listen(port, '0.0.0.0', () => {
   console.log(`Servidor corriendo en el puerto ${port}`);
 });
+
