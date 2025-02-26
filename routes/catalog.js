@@ -4,7 +4,8 @@ const router = express.Router();
 // Datos de ejemplo para el catálogo
 const rzrVehicles = [
   { id: 5, name: "polaris crew pro xd", price: 1200, image: "/images/polaris.jpg", description: "RZR off road de 4 plazas" },
-  { id: 6, name: "rzr polaris 1000 xr ", price: 1200, image: "/images/rzr1000.jpg", description: "RZR off road de 4 plazas" }
+  { id: 6, name: "rzr polaris 1000 xr ", price: 1200, image: "/images/rzr1000.jpg", description: "RZR off road de 4 plazas" },
+  { id: 7, name: "rzr polaris pro xp 4 sport ", price: 1200, image: "/images/rzrsport.jpg", description: "RZR off road de 4 plazas" }
 ];
 
 const cuatrimotosVehicles = [
